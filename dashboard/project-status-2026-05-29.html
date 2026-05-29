@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insights and Portfolio Dashboard | P. V. Sundar Balakrishnan | 2026-05-29</title>
+<style>
+  :root{
+    --uw-purple:#4b2e83; --uw-gold:#b7a57a; --ink:#1a1a1a; --muted:#5b6470;
+    --line:#e3e1ea; --bg:#f6f5fa; --card:#ffffff;
+    --red:#c0392b; --amber:#b9770e; --green:#1e7d4f; --blue:#2a5d9e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;font-size:15px;}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 56px;}
+  header.top{background:var(--uw-purple);color:#fff;border-radius:10px;padding:24px 26px;margin-bottom:22px;}
+  header.top h1{margin:0 0 4px;font-size:23px;letter-spacing:.2px;}
+  header.top .sub{opacity:.85;font-size:14px;}
+  header.top .meta{margin-top:12px;font-size:13px;opacity:.9;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;}
+  h2.section{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);
+    margin:30px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;}
+  .kpi .n{font-size:26px;font-weight:700;color:var(--uw-purple);line-height:1;}
+  .kpi .l{font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .alert{background:#fff5f4;border:1px solid #f0c9c4;border-left:5px solid var(--red);
+    border-radius:8px;padding:14px 16px;margin-bottom:10px;}
+  .alert.amber{background:#fff9ef;border-color:#efd9b0;border-left-color:var(--amber);}
+  .alert b{color:var(--ink);}
+  .alert .when{font-size:12.5px;color:var(--muted);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;
+    padding:0;margin-bottom:18px;overflow:hidden;}
+  .card .head{padding:16px 20px;border-bottom:1px solid var(--line);
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+  .card .head h3{margin:0;font-size:18px;flex:1 1 auto;}
+  .card .head .tag{font-size:12px;color:var(--muted);}
+  .card .body{padding:16px 20px;}
+  .badge{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:20px;
+    border:1px solid transparent;white-space:nowrap;}
+  .b-green{background:#e7f5ee;color:var(--green);border-color:#bfe3cf;}
+  .b-amber{background:#fdf3e2;color:var(--amber);border-color:#f0dcb4;}
+  .b-red{background:#fdecea;color:var(--red);border-color:#f2c6c0;}
+  .b-blue{background:#e9f1fb;color:var(--blue);border-color:#c4d8f0;}
+  .b-grey{background:#eef0f3;color:var(--muted);border-color:#d8dce2;}
+  .meter{height:7px;background:#ecebf2;border-radius:6px;overflow:hidden;margin:4px 0 14px;}
+  .meter > span{display:block;height:100%;background:linear-gradient(90deg,var(--uw-purple),#7a5bb5);}
+  .lbl{font-size:12.5px;color:var(--muted);margin-bottom:2px;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:640px){.two{grid-template-columns:1fr}}
+  h4{margin:14px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--uw-purple);}
+  ul{margin:6px 0 6px;padding-left:20px;}
+  li{margin:3px 0;}
+  .next li{margin:5px 0;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px;}
+  table.mini{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0;}
+  table.mini td,table.mini th{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.mini th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;}
+  .note{font-size:12.5px;color:var(--muted);}
+  code{background:#f0eef6;padding:1px 5px;border-radius:4px;font-size:12.5px;}
+  footer{margin-top:30px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>Insights and Portfolio Dashboard</h1>
+    <div class="sub">Project status across all active work threads</div>
+    <div class="meta">
+      Prepared for P. V. (Sundar) Balakrishnan &nbsp;|&nbsp; Snapshot date: 29 May 2026 &nbsp;|&nbsp;
+      Sources: email work threads (self-notes, collaborator mail, editorial system)
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="kpi"><div class="n">3</div><div class="l">Active project streams</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">Items needing action this week</div></div>
+    <div class="kpi"><div class="n">7&nbsp;days</div><div class="l">To the UWB conference talk</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">PLOS ONE manuscripts in play</div></div>
+  </div>
+
+  <h2 class="section">Needs attention now</h2>
+
+  <div class="alert">
+    <b>PLOS ONE editor invitation expires within 24 hours.</b>
+    <span class="when">Received 29 May. Accept or decline by ~30 May.</span><br>
+    Manuscript <code>PONE-D-26-24115</code>, "Impact of National Drug Price Negotiation Policy on the Launch
+    Prices of Innovative Biologics in China." The invitation asks for an accept or decline decision within 24 hours.
+  </div>
+
+  <div class="alert amber">
+    <b>UWB School of Business conference talk is one week out (5 June).</b>
+    <span class="when">Build not yet started; full build spec is ready.</span><br>
+    The deck "Alpha, Beta, Gamma, Lambda" still has two open inputs to supply before the build can run:
+    the S14 data source line (verbatim provenance), and the S26 decision (lift a frozen regime figure or
+    regenerate at seed 7149).
+  </div>
+
+  <!-- PROJECT 1 -->
+  <div class="card">
+    <div class="head">
+      <h3>BIODIV-AUTO</h3>
+      <span class="badge b-amber">On track, in finishing phase</span>
+      <span class="tag">Flagship research program</span>
+    </div>
+    <div class="body">
+      <p>Long-run market-structure study of the U.S. automobile industry that applies ecological
+      biodiversity metrics (Alpha, Beta, Gamma diversity, plus the Lambda path diagnostic) across a
+      locked three-era design: <b>1936&ndash;1941, 1968&ndash;1969, 2014&ndash;2023</b>.
+      Manuscript working title "Fewer Firms, More Rivals"; talk title
+      "Alpha, Beta, Gamma, Lambda: The Biodiversity of the U.S. Automobile Industry, 1937 to 2023."</p>
+
+      <div class="lbl">Overall completion (analysis + manuscript body)</div>
+      <div class="meter"><span style="width:78%"></span></div>
+
+      <div class="pill-row">
+        <span class="badge b-green">Methods locked</span>
+        <span class="badge b-green">Results Stage 3 locked</span>
+        <span class="badge b-green">Discussion resealed</span>
+        <span class="badge b-green">Construct switch (asset to sales) validated</span>
+        <span class="badge b-amber">3ERA engine cleanup in flight</span>
+        <span class="badge b-blue">OA rebuild pending</span>
+      </div>
+
+      <div class="two">
+        <div>
+          <h4>Recently completed</h4>
+          <ul>
+            <li>Asset-to-sales recompute done and cross-validated; modern battery reproduces the Online Appendix to the digit.</li>
+            <li>Four anchors certified: 1937 HHI 2833.9 / Hill N1 4.438; 2023 HHI 944.8 / N1 12.308; hierarchical q=1 series; modern nameplate Lambda 0.347.</li>
+            <li>Exhibits T1&ndash;T5 and figures F1&ndash;F4 generated; manuscript Methods, Results, and Discussion brought to a clean locked state.</li>
+            <li>Nameplate problem resolved (Passport_Stats confirmed as canonical modern badge source).</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Open and in progress</h4>
+          <ul>
+            <li><b>Fisher's Alpha</b> is the one failing metric (0 of 18 years). Cleanup dispatch fixes it or documents it as structurally invalid for share data, then re-confirms every Phase 2 gate.</li>
+            <li>After the engine returns clean it is treated as <b>gate-closed</b>; next step is Online Appendix asset rebuild planning.</li>
+            <li>Three open decisions: Hall-Tideman rank convention; seven metrics deferred to R; OA-2 / OA-13.2 firm-level vs nameplate-level.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Workstreams</h4>
+      <table class="mini">
+        <tr><th>Stream</th><th>Status</th><th>Next move</th></tr>
+        <tr>
+          <td>Analysis engine (3ERA pipeline)</td>
+          <td><span class="badge b-amber">Cleanup</span></td>
+          <td>Run scoped Fisher's Alpha fix + cosmetic label fixes, re-render, re-confirm gates</td>
+        </tr>
+        <tr>
+          <td>Manuscript finish-line (7 phases)</td>
+          <td><span class="badge b-green">Stable</span></td>
+          <td>Terminology verify-and-count sweep, then minimal approved cleanup</td>
+        </tr>
+        <tr>
+          <td>Online Appendix regeneration</td>
+          <td><span class="badge b-blue">Queued</span></td>
+          <td>Rebuild tables/figures from new two-window panel (incl. 50 per-metric charts)</td>
+        </tr>
+        <tr>
+          <td>UWB conference talk deck (5 Jun)</td>
+          <td><span class="badge b-red">Not started</span></td>
+          <td>Supply S14 source line + S26 decision, then run the Cowork build stack</td>
+        </tr>
+        <tr>
+          <td>Historical data recovery</td>
+          <td><span class="badge b-amber">Awaiting library</span></td>
+          <td>Ward's Automotive Yearbook registration tables (1938 &amp; 1964/65); request sent to UTD business reference</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="card">
+    <div class="head">
+      <h3>PLOS ONE &mdash; Academic Editor duties</h3>
+      <span class="badge b-red">Action required</span>
+      <span class="tag">Editorial service</span>
+    </div>
+    <div class="body">
+      <p>Ongoing Academic Editor role. One assignment is mid-review and one new invitation is time-sensitive.</p>
+      <table class="mini">
+        <tr><th>Manuscript</th><th>Title</th><th>State</th><th>Action</th></tr>
+        <tr>
+          <td><code>PONE-D-26-24115</code></td>
+          <td>Impact of National Drug Price Negotiation Policy on Launch Prices of Innovative Biologics in China</td>
+          <td><span class="badge b-red">Invitation, 24h window</span></td>
+          <td>Accept or decline by ~30 May</td>
+        </tr>
+        <tr>
+          <td><code>PONE-D-25-62892R2</code></td>
+          <td>Gender representation begets gender representation</td>
+          <td><span class="badge b-amber">Under review (11 days); 1 of 2 reviews in</span></td>
+          <td>Invite an additional reviewer or move toward a decision (Minor Revision track)</td>
+        </tr>
+      </table>
+      <p class="note">The R2 submission has been in the system 178 days, so it is worth closing the reviewer gap to keep it moving.</p>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="card">
+    <div class="head">
+      <h3>DoMS Brand Architecture &amp; Tagline</h3>
+      <span class="badge b-blue">Awaiting group feedback</span>
+      <span class="tag">IIT Madras, Dept. of Management Studies</span>
+    </div>
+    <div class="body">
+      <p>Working group exercise (with Saji Mathew, Varisha Rehman, Vaibhav Chawla, Alok Ohrie, Swetha Venkit)
+      to define what DoMS should stand for and to converge on a tagline.</p>
+
+      <div class="lbl">Process completion</div>
+      <div class="meter"><span style="width:65%"></span></div>
+
+      <div class="two">
+        <div>
+          <h4>Done</h4>
+          <ul>
+            <li>White paper delivered 22 May: evidence base, comparative IIT motto analysis, peer-school positioning, six-criterion tagline scoring, perceptual map, proposed brand-architecture framework, and recommended path.</li>
+            <li>Tagline submissions collated; one candidate floated by collaborators: "Innovate. Impact. Partnership."</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Next</h4>
+          <ul class="next">
+            <li>Collect group reactions to the white paper (logic, missing evidence, exhibits, sequencing).</li>
+            <li>Converge to three candidate taglines via selection and synthesis.</li>
+            <li>Fold in the older-IIT motto interpretations (Alok and Vaibhav) at the next discussion.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section">Consolidated next actions</h2>
+  <div class="card"><div class="body">
+    <ol class="next">
+      <li><b>Today / tomorrow:</b> Accept or decline the PLOS ONE editor invitation for <code>PONE-D-26-24115</code> before the 24-hour window closes.</li>
+      <li><b>This week:</b> Supply the two open deck inputs (S14 source line, S26 figure decision) and kick off the UWB talk build so the deck is ready for 5 June.</li>
+      <li><b>This week:</b> Bring the 3ERA engine cleanup report back for the gate check; once clean, open Online Appendix asset-rebuild planning.</li>
+      <li><b>Ongoing:</b> Close the reviewer gap on <code>PONE-D-25-62892R2</code>.</li>
+      <li><b>When convenient:</b> Nudge the DoMS group for white-paper feedback and the older-IIT motto inputs.</li>
+      <li><b>Background:</b> Follow up with UTD business reference on the Ward's Automotive Yearbook registration tables.</li>
+    </ol>
+  </div></div>
+
+  <footer>
+    Generated automatically from a sweep of active work threads. This is a working synthesis for personal
+    planning; figures and statuses reflect the most recent thread in each stream as of 29 May 2026.
+    Where a later note superseded an earlier one (for example the three-era framing replacing the older
+    three-regime framing), the most recent state is shown.
+  </footer>
+
+</div>
+</body>
+</html>
