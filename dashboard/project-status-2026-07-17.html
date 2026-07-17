@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insights and Portfolio Dashboard | P. V. Sundar Balakrishnan | 2026-07-17</title>
+<style>
+  :root{
+    --uw-purple:#4b2e83; --uw-gold:#b7a57a; --ink:#1a1a1a; --muted:#5b6470;
+    --line:#e3e1ea; --bg:#f6f5fa; --card:#ffffff;
+    --red:#c0392b; --amber:#b9770e; --green:#1e7d4f; --blue:#2a5d9e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;font-size:15px;}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 56px;}
+  header.top{background:var(--uw-purple);color:#fff;border-radius:10px;padding:24px 26px;margin-bottom:22px;}
+  header.top h1{margin:0 0 4px;font-size:23px;letter-spacing:.2px;}
+  header.top .sub{opacity:.85;font-size:14px;}
+  header.top .meta{margin-top:12px;font-size:13px;opacity:.9;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;}
+  h2.section{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);
+    margin:30px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;}
+  .kpi .n{font-size:26px;font-weight:700;color:var(--uw-purple);line-height:1;}
+  .kpi .l{font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .alert{background:#fff5f4;border:1px solid #f0c9c4;border-left:5px solid var(--red);
+    border-radius:8px;padding:14px 16px;margin-bottom:10px;}
+  .alert.amber{background:#fff9ef;border-color:#efd9b0;border-left-color:var(--amber);}
+  .alert.blue{background:#eef4fc;border-color:#cadcf3;border-left-color:var(--blue);}
+  .alert b{color:var(--ink);}
+  .alert .when{font-size:12.5px;color:var(--muted);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;
+    padding:0;margin-bottom:18px;overflow:hidden;}
+  .card .head{padding:16px 20px;border-bottom:1px solid var(--line);
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+  .card .head h3{margin:0;font-size:18px;flex:1 1 auto;}
+  .card .head .tag{font-size:12px;color:var(--muted);}
+  .card .body{padding:16px 20px;}
+  .badge{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:20px;
+    border:1px solid transparent;white-space:nowrap;}
+  .b-green{background:#e7f5ee;color:var(--green);border-color:#bfe3cf;}
+  .b-amber{background:#fdf3e2;color:var(--amber);border-color:#f0dcb4;}
+  .b-red{background:#fdecea;color:var(--red);border-color:#f2c6c0;}
+  .b-blue{background:#e9f1fb;color:var(--blue);border-color:#c4d8f0;}
+  .b-grey{background:#eef0f3;color:var(--muted);border-color:#d8dce2;}
+  .meter{height:7px;background:#ecebf2;border-radius:6px;overflow:hidden;margin:4px 0 14px;}
+  .meter > span{display:block;height:100%;background:linear-gradient(90deg,var(--uw-purple),#7a5bb5);}
+  .lbl{font-size:12.5px;color:var(--muted);margin-bottom:2px;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:640px){.two{grid-template-columns:1fr}}
+  h4{margin:14px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--uw-purple);}
+  ul{margin:6px 0 6px;padding-left:20px;}
+  li{margin:3px 0;}
+  .next li{margin:5px 0;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px;}
+  table.mini{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0;}
+  table.mini td,table.mini th{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.mini th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;}
+  .note{font-size:12.5px;color:var(--muted);}
+  code{background:#f0eef6;padding:1px 5px;border-radius:4px;font-size:12.5px;}
+  footer{margin-top:30px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>Insights and Portfolio Dashboard</h1>
+    <div class="sub">Project status across all active work threads</div>
+    <div class="meta">
+      Prepared for P. V. (Sundar) Balakrishnan &nbsp;|&nbsp; Snapshot date: 17 July 2026 &nbsp;|&nbsp;
+      Prior snapshot: 29 May 2026 &nbsp;|&nbsp; Sources: email work threads (self-notes, collaborator mail, weekly briefing)
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="kpi"><div class="n">4</div><div class="l">Active research manuscripts</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">At the submission finish line</div></div>
+    <div class="kpi"><div class="n">1</div><div class="l">In co-author review</div></div>
+    <div class="kpi"><div class="n">Fall&nbsp;2026</div><div class="l">FMLA medical leave pending</div></div>
+  </div>
+
+  <h2 class="section">Needs attention now</h2>
+
+  <div class="alert">
+    <b>IDEA-SS is one clean pass from submission.</b>
+    <span class="when">Target journal: Assessment &amp; Evaluation in Higher Education.</span><br>
+    The manuscript is frozen and canonical. The remaining path is mechanical: run the source-level adversarial
+    verifier on the QMD and bibliography, fix only Critical blockers, build the blinded derivative, re-render
+    DOCX/PDF on Windows, run the final anonymization and formatting checks, then submit.
+  </div>
+
+  <div class="alert amber">
+    <b>Electoral Turtle / ELJ is packaging-only, but the GitHub repo is not yet live.</b>
+    <span class="when">Target journal: Election Law Journal (submit via Sage Track / ScholarOne).</span><br>
+    Science is frozen (49-page render, zero errors). Blocking items before submission: create
+    <code>github.com/sundar-uw/electoral-turtle-optimizer</code>, fix two rendered em dashes, produce the
+    double-anonymized body plus a separate title page, resolve the anonymization vs. code-availability conflict,
+    convert to Word, and draft the cover letter.
+  </div>
+
+  <div class="alert blue">
+    <b>Ashwin Malshe (UTSA) is waiting on you.</b>
+    <span class="when">Co-authored dept-rankings paper; he sent comments and a phone call was agreed.</span><br>
+    His questions on the manuscript and supplement need a reply, and the Friday call (he offered 12&ndash;3pm PST)
+    should be confirmed or closed out.
+  </div>
+
+  <div class="alert amber">
+    <b>Fall 2026 FMLA medical leave is submitted and pending approval.</b>
+    <span class="when">HR (Felix Neals) is assisting; chair (Sophie LeRoy) will arrange coverage on approval.</span><br>
+    This materially shapes capacity for the fall. Course and service reassignment will follow once the leave is approved,
+    so the research submissions above are best cleared before the leave takes effect.
+  </div>
+
+  <!-- IDEA-SS -->
+  <div class="card">
+    <div class="head">
+      <h3>IDEA-SS</h3>
+      <span class="badge b-amber">Submission prep, near done</span>
+      <span class="tag">Teaching evaluation / DEA benchmarking paper</span>
+    </div>
+    <div class="body">
+      <p>Multidimensional performance-benchmarking study of instructor-section teaching outcomes (an IDEA-M / DEA
+      framework with rule-based zone classification and DEA reference sets read as candidate mentor matches).
+      Target: <b>Assessment &amp; Evaluation in Higher Education</b>.</p>
+
+      <div class="lbl">Path to submission</div>
+      <div class="meter"><span style="width:88%"></span></div>
+
+      <div class="pill-row">
+        <span class="badge b-green">Canonical files frozen</span>
+        <span class="badge b-green">Numerical anchors locked</span>
+        <span class="badge b-amber">Adversarial verifier to run</span>
+        <span class="badge b-blue">Blinded derivative + render pending</span>
+      </div>
+
+      <div class="two">
+        <div>
+          <h4>Locked state</h4>
+          <ul>
+            <li>Canonical QMD, bibliography, and title page treated as authoritative; the formatted Word file is a derived output only.</li>
+            <li>Data anchors fixed: 1,355 instructor-section observations, 368 instructors, six zones (219 / 386 / 145 / 405 / 136 / 64), Top-4&ndash;CEI r = 0.20.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Remaining steps (in order)</h4>
+          <ul class="next">
+            <li>Run the adversarial verifier (DEA terminology, inference level, anonymization, all 39 references).</li>
+            <li>Correct only Critical blockers and high-value Important findings.</li>
+            <li>Build the blinded submission derivative; re-render DOCX/PDF on Windows.</li>
+            <li>Final render checks (cross-refs, equations, metadata, word count), then submit.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ELJ Turtle -->
+  <div class="card">
+    <div class="head">
+      <h3>Electoral Turtle Optimizer</h3>
+      <span class="badge b-amber">Packaging (Phase 8)</span>
+      <span class="tag">Election Law Journal submission</span>
+    </div>
+    <div class="body">
+      <p>Methods paper on electoral-vote optimization ("back-test blue states" turtle manuscript).
+      Scientific content is frozen; the work now is submission packaging only. Target: <b>Election Law Journal</b>
+      (Sage Track / ScholarOne).</p>
+
+      <div class="lbl">Path to submission</div>
+      <div class="meter"><span style="width:70%"></span></div>
+
+      <div class="pill-row">
+        <span class="badge b-green">Science frozen</span>
+        <span class="badge b-green">49-page render, 0 errors</span>
+        <span class="badge b-red">GitHub repo not yet live</span>
+        <span class="badge b-blue">Anonymized body + title page pending</span>
+      </div>
+
+      <h4>Packaging checklist</h4>
+      <ul class="next">
+        <li>Create and verify the code repo <code>github.com/sundar-uw/electoral-turtle-optimizer</code>.</li>
+        <li>Fix two rendered em dashes in the methods source; reconfirm live ELJ author instructions.</li>
+        <li>Trim abstract to 300 words, election-law-forward framing.</li>
+        <li>Produce the double-anonymized body (no <code>sundar-uw</code> handle leakage) and a separate title page with the full Statements &amp; Declarations block.</li>
+        <li>Resolve the double-anonymization vs. code-availability conflict; convert to Word; draft the cover letter; final verifier + reference check; submit.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dept Rankings / Ashwin -->
+  <div class="card">
+    <div class="head">
+      <h3>Department Rankings (Google Scholar citations)</h3>
+      <span class="badge b-blue">In co-author review</span>
+      <span class="tag">With Ashwin Malshe (UTSA)</span>
+    </div>
+    <div class="body">
+      <p>Citation-based department rankings study (US News / JMR framing) with a Zipf-analysis supplement.
+      Co-author review is active.</p>
+      <div class="two">
+        <div>
+          <h4>Where it stands</h4>
+          <ul>
+            <li>Manuscript and supplement shared with Ashwin; he returned substantive questions and comments (e.g. interpretation of dispersed vs. concentrated citations).</li>
+            <li>A phone call was agreed to work through the comments (his offer: 12&ndash;3pm PST).</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Next</h4>
+          <ul class="next">
+            <li>Reply to Ashwin's comments and hold or reschedule the call.</li>
+            <li>Fold agreed revisions into the canonical source and re-render the supplement.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIODIV-AUTO -->
+  <div class="card">
+    <div class="head">
+      <h3>BIODIV-AUTO</h3>
+      <span class="badge b-grey">Quiet since late May</span>
+      <span class="tag">Auto-industry biodiversity manuscript</span>
+    </div>
+    <div class="body">
+      <p>Long-run market-structure study applying ecological diversity metrics (Alpha, Beta, Gamma, Lambda) to
+      the U.S. automobile industry. As of the 29 May snapshot the manuscript body was in a clean locked state with
+      the three-era engine cleanup in flight and the Online Appendix rebuild queued.</p>
+      <p class="note"><b>No BIODIV-AUTO thread activity in the last ~7 weeks.</b> The UWB School of Business talk
+      that was scheduled for 5 June has passed. Status is carried over from the May snapshot and should be
+      re-verified. Decision needed: resume toward submission, or hold until after the fall leave.</p>
+      <div class="pill-row">
+        <span class="badge b-green">Manuscript body locked (May)</span>
+        <span class="badge b-amber">Engine cleanup last-known open</span>
+        <span class="badge b-grey">OA rebuild queued</span>
+        <span class="badge b-grey">Conference talk date passed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLOS -->
+  <div class="card">
+    <div class="head">
+      <h3>PLOS ONE &mdash; Academic Editor</h3>
+      <span class="badge b-grey">Ongoing, verify</span>
+      <span class="tag">Editorial service</span>
+    </div>
+    <div class="body">
+      <p>Standing Academic Editor role. No editorial-system mail surfaced in the last ~7 weeks, so the state below
+      is carried from the May snapshot and should be confirmed in Editorial Manager.</p>
+      <ul>
+        <li><code>PONE-D-26-24115</code> (National Drug Price Negotiation / biologics, China): a 24-hour accept/decline invitation from late May; by now decided.</li>
+        <li><code>PONE-D-25-62892R2</code> ("Gender representation begets gender representation"): under review, 1 of 2 required reviews in as of May; likely needs a reviewer nudge or a decision.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section">Service &amp; engagements (winding down)</h2>
+  <div class="card"><div class="body">
+    <table class="mini">
+      <tr><th>Engagement</th><th>Status</th><th>Open item</th></tr>
+      <tr>
+        <td>DoMS brand / tagline (IIT Madras)</td>
+        <td><span class="badge b-green">Delivered</span></td>
+        <td>White paper delivered and session recorded; honorarium bank details sent to Swetha. Admin close-out.</td>
+      </tr>
+      <tr>
+        <td>Welingkar Marketing Board of Studies</td>
+        <td><span class="badge b-green">Meeting done</span></td>
+        <td>Honorarium requested to Naada Inbam trust (via Kiran).</td>
+      </tr>
+      <tr>
+        <td>ICBSC 2026 Anaheim</td>
+        <td><span class="badge b-blue">Reimbursement filed</span></td>
+        <td>Uber + meal per-diem claim submitted to UW (Isaac / Ken).</td>
+      </tr>
+    </table>
+  </div></div>
+
+  <h2 class="section">Admin &amp; logistics</h2>
+  <div class="card"><div class="body">
+    <ul>
+      <li><b>Fall 2026 FMLA medical leave:</b> submitted to UW HR Leaves; Felix Neals assisting; chair acknowledged and will arrange coverage on approval. Health-care provider certification in process.</li>
+      <li><b>India NRO&nbsp;to&nbsp;NRE repatriation and tax:</b> with Sartha Advisors (Guru) and P.V. Rajagopalan. Validate the NRO account on the tax portal by OTP (in town), sign Forms 145/146, affix photos, send self-attested PAN + Aadhaar; source-of-funds declaration for HDFC cheque. Aadhaar-PAN linking failed on a name mismatch and needs a retry.</li>
+      <li><b>CV:</b> refreshed to the 14-page July 2026 master version.</li>
+      <li><b>Tax filing (US):</b> intro made to ESK Advisors (Bellevue); follow up to open the conversation.</li>
+    </ul>
+  </div></div>
+
+  <h2 class="section">Consolidated next actions</h2>
+  <div class="card"><div class="body">
+    <ol class="next">
+      <li><b>Clear before the leave:</b> run the IDEA-SS verifier and submit; finish ELJ packaging (repo first) and submit.</li>
+      <li><b>This week:</b> reply to Ashwin Malshe and hold the call on the dept-rankings paper.</li>
+      <li><b>Decide:</b> whether to resume BIODIV-AUTO now or park it until after the fall leave.</li>
+      <li><b>Confirm:</b> current PLOS ONE assignment state in Editorial Manager.</li>
+      <li><b>Admin:</b> complete the NRO validation and forms with Guru; retry Aadhaar-PAN linking; follow up on FMLA approval and coverage.</li>
+    </ol>
+  </div></div>
+
+  <footer>
+    Generated automatically from a sweep of active work threads. This is a working synthesis for personal planning.
+    Statuses reflect the most recent thread in each stream as of 17 July 2026; where a stream had no recent activity
+    (BIODIV-AUTO, PLOS ONE), the prior 29 May state is carried over and flagged for verification.
+  </footer>
+
+</div>
+</body>
+</html>
